@@ -176,3 +176,14 @@ export PS1='%{$fg[red]%}%n@%m%{$fg[blue]%} %B%3~%b$(git_prompt_info)%{$reset_col
 #local RETURN_CODE="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 #local RETURN_CODE="%(?..%{$fg[red]%}%? %{$reset_color%})"
 #export RPS1=$RETURN_CODE
+
+# source transient configurations
+
+local RC_DIR="$ZSH_HOME/rc.d"
+if [[ -d $RC_DIR ]]
+then
+  for RCFILE in "$RC_DIR"/*
+  do
+    source "$RCFILE"
+  done
+fi
