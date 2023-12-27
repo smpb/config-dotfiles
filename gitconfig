@@ -1,0 +1,74 @@
+[user]
+  name = Sérgio Bernardino
+  email = me@sergiobernardino.net
+[color]
+  branch = auto
+  diff   = auto
+  grep   = auto
+  status = auto
+  log    = auto
+[color "status"]
+  added     = green
+  untracked = yellow
+[alias]
+  # SOURCES: https://github.com/gitalias/gitalias
+  #
+  # [aa = add all] Adds all files
+  aa  = add .
+  # list all the created aliases
+  alias = !git config --get-regexp alias | awk -F'.' '{ print $2 }'
+  # assume a file is never changed
+  assume = update-index --assume-unchanged
+  # list file that are assumed to never be changed
+  assumed  = "!git ls-files -v | grep ^h | cut -c 3-"
+  # stop assuming a file is never changed
+  unassume = update-index --no-assume-unchanged
+  # [co = checkout]
+  co  = checkout
+  # [ci = commit]
+  ci  = commit
+  # [df = diff]
+  df  = diff
+  # [dfs = diff --staged] view the changes you staged for the next commit
+  dfs = diff --staged
+  # [dfw = diff --word-diff=color] Show a word diff, with color delimiting changed words
+  dfw = diff --word-diff=color
+  # [l = log] short one line logs with ref-names
+  l   = log --oneline --name-status --decorate=short
+  # [l = log] short one line logs with ref-names, date and author - nice colored
+  ll  = log --graph --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --date=relative
+  # [ls = ls-files] list all files
+  ls  = ls-files
+  # fix commits that have typos on the message and/or missing files
+  #  missing files need to be added before invoking 'fix'
+  fix = commit --amend
+  # the "Ramalho Syndrome"
+  poop = stash pop
+  # take a snapshot of your current working tree without removing the changes from your tree
+  snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
+  # [st = status] short status
+  st  = status --short
+  # stashed stuff
+  stashed = stash list --pretty=format:'%gd: %Cred%h%Creset %Cgreen[%ar]%Creset %s'
+  # cleared the stash by mistake
+  stash-recover = "!git fsck --unreachable | grep commit | cut -d ' ' -f3 | xargs git log --merges --no-walk --grep=WIP"
+  # get the top level directory name
+  top = rev-parse --show-toplevel
+  # git pull with rebase
+  update = "!git pull origin $(git rev-parse --abbrev-ref HEAD) --rebase"
+  # show a ranked count of git verbs
+  verbs = !git log --pretty=format:'%s' | cut -d ' ' -f 1 | sort | uniq -c | sort -n
+  # [what = whatchanged] what changed in each commit
+  what = whatchanged
+  # [who = shortlog] who committed and how much
+  who = shortlog --summary --email --numbered --no-merges
+[core]
+  excludesfile = ~/.gitignore
+[push]
+  default = tracking
+[merge]
+  tool = meld
+[diff]
+  tool = meld
+[difftool]
+  prompt = false
