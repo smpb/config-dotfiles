@@ -56,12 +56,14 @@ export LSCOLORS="Gxfxcxdxbxegedabagacad"
 local HISTFILE=$ZSH_HOME/zsh_history
 local HISTSIZE=100000
 local SAVEHIST=100000
-setopt hist_ignore_dups
-setopt share_history
-setopt hist_verify
-setopt extended_history
-setopt hist_expire_dups_first
-setopt hist_ignore_space
+setopt EXTENDED_HISTORY         # save each command’s beginning timestamp and the duration
+setopt HIST_EXPIRE_DUPS_FIRST   # remove the oldest history events that have duplicates, first
+setopt HIST_IGNORE_DUPS         # ignore duplicates when adding commands to history
+setopt HIST_IGNORE_SPACE        # ignore commands with leading whitespace in history
+setopt HIST_REDUCE_BLANKS       # remove superfluous blanks from each command line being added to the history
+setopt HIST_VERIFY              # verify commands before executing them from history
+setopt INC_APPEND_HISTORY       # append new history entries to the history file in real-time
+setopt SHARE_HISTORY            # enable interactive history sharing between tabs
 
 # completion
 
