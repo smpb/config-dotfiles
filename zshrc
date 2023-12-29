@@ -47,6 +47,9 @@ setopt NOMATCH
 setopt NOTIFY
 unsetopt BEEP
 
+setopt AUTO_CD
+CDPATH=$HOME
+
 autoload colors && colors;
 export CLICOLOR=1
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
@@ -92,6 +95,10 @@ unsetopt MENU_COMPLETE
 zstyle ':completion:*' completer _complete _approximate
 zstyle ':completion:*:approximate:*' max-errors 2 numeric
 zstyle ':completion:*:approximate:*' max-errors 2 not-numeric
+
+# group completions and display a heading for each
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*:descriptions' format %d
 
 # correction
 
