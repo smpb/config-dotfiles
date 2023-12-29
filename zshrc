@@ -105,25 +105,25 @@ bindkey '^[[B' down-line-or-search
 
 # aliases
 
-alias  mv='nocorrect mv -vi'
-alias  cp='nocorrect cp -v'
-alias  rm='rm -vI'
-alias  ll='ls -Flha'
-alias  vi='nocorrect vim'
-alias  ..='cd ..'
-alias  ...='cd ../..'
-alias  git='nocorrect git'
-alias  go-go-gadget='sudo' # "Don't worry, Chief, Inspector Gadget is always on duty!"
+alias -g mv='nocorrect mv -vi'
+alias -g cp='nocorrect cp -v'
+alias -g rm='rm -vI'
+alias -g ll='ls -Flha'
+alias -g vi='nocorrect vim'
+alias -g ..='cd ..'
+alias -g ...='cd ../..'
+alias -g git='nocorrect git'
+alias -g go-go-gadget='sudo' # "Don't worry, Chief, Inspector Gadget is always on duty!"
 
 # use Visual Studio Code for `meld`
 if type code &>/dev/null
 then
-  alias  meld='code --diff'
+  alias -g meld='code --diff'
 fi
 
 # only for graphical mode
 if [[ $TERM == "xterm" || $TERM == "xterm-color" || $TERM == "xterm-256color" || $TERM == "rxvt" ]]; then
-  alias vim=gvim
+  alias -g vim=gvim
 fi
 
 # git
