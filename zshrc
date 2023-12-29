@@ -42,10 +42,10 @@ export LANG=en_US.UTF-8
 
 #
 
-setopt promptsubst
-setopt nomatch
-setopt notify
-unsetopt beep
+setopt PROMPT_SUBST
+setopt NOMATCH
+setopt NOTIFY
+unsetopt BEEP
 
 autoload colors; colors;
 export CLICOLOR=1
@@ -86,7 +86,7 @@ zstyle ':completion:*' cache-path $ZSH_HOME/cache
 
 # display selection menu if there are more than two matches
 zstyle ':completion:*' menu yes=2 select
-unsetopt menu_complete
+unsetopt MENU_COMPLETE
 
 # attempt to complete, correct typos up to two mistakes
 zstyle ':completion:*' completer _complete _approximate
@@ -95,7 +95,7 @@ zstyle ':completion:*:approximate:*' max-errors 2 not-numeric
 
 # correction
 
-setopt correct_all
+setopt CORRECT_ALL
 
 # make search up and down work,
 # so partially type and hit up/down to find relevant stuff
