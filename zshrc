@@ -62,8 +62,7 @@ setopt HIST_IGNORE_DUPS         # ignore duplicates when adding commands to hist
 setopt HIST_IGNORE_SPACE        # ignore commands with leading whitespace in history
 setopt HIST_REDUCE_BLANKS       # remove superfluous blanks from each command line being added to the history
 setopt HIST_VERIFY              # verify commands before executing them from history
-setopt INC_APPEND_HISTORY       # append new history entries to the history file in real-time
-setopt SHARE_HISTORY            # enable interactive history sharing between tabs
+setopt INC_APPEND_HISTORY_TIME  # append new entries to the history file right after the command exits, with the elapsed time
 
 # completion
 
