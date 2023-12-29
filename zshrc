@@ -117,7 +117,6 @@ alias -g cp='nocorrect cp -v'
 alias -g rm='rm -vI'
 alias -g ll='ls -Flha'
 alias -g vi='nocorrect vim'
-alias -g ..='cd ..'
 alias -g ...='cd ../..'
 alias -g git='nocorrect git'
 alias -g go-go-gadget='sudo' # "Don't worry, Chief, Inspector Gadget is always on duty!"
