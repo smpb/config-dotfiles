@@ -72,3 +72,5 @@
   tool = meld
 [difftool]
   prompt = false
+[grep]
+  lineNumber = true
