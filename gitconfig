@@ -37,8 +37,8 @@
   dfw = diff --word-diff=color
   # [l = log] short one line logs with ref-names
   l   = log --oneline --name-status --decorate=short
-  # [l = log] short one line logs with ref-names, date and author - nice colored
-  ll  = log --graph --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --date=relative
+  # [lp = log] short one line logs with ref-names, date and author - nice colored
+  lp  = log --graph --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --date=relative
   # [ls = ls-files] list all files
   ls  = ls-files
   # fix commits that have typos on the message and/or missing files
