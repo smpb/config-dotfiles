@@ -70,6 +70,9 @@
   tool = meld
 [diff]
   tool = meld
+  # moved lines will be colored differently in diff, so that code motions not confused with additions and deletions
+  colormoved = "default"
+  colormovedws = "allow-indentation-change"
 [difftool]
   prompt = false
 [grep]
