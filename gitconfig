@@ -27,6 +27,8 @@
   co  = checkout
   # [ci = commit]
   ci  = commit
+  # [cim = commit -m] commit with message
+  cim = commit -m
   # [df = diff]
   df  = diff
   # [dfs = diff --staged] view the changes you staged for the next commit
