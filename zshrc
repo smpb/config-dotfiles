@@ -112,14 +112,14 @@ bindkey '^[[B' down-line-or-search
 
 # aliases
 
-alias -g mv='nocorrect mv -vi'
-alias -g cp='nocorrect cp -v'
-alias -g rm='rm -vI'
-alias -g ll='ls -Flha'
-alias -g vi='nocorrect vim'
-alias -g ...='cd ../..'
-alias -g git='nocorrect git'
-alias -g go-go-gadget='sudo' # "Don't worry, Chief, Inspector Gadget is always on duty!"
+alias   cp='cp -v'
+alias   ll='ls -Flha'
+alias   mv='mv -vi'
+alias   rm='rm -vI'
+alias   vi='nocorrect vim'
+alias  ...='cd ../..'
+alias  git='nocorrect git'
+alias sudo='sudo '          # use alias expansion (otherwise sudo ignores other aliases)
 
 # use Visual Studio Code for `meld`
 if type code &>/dev/null
