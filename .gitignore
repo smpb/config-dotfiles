@@ -1,1 +1,4 @@
 zsh/*
+!zsh/rc.d
+!zsh/rc.d/
+!zsh/rc.d/*.zshrc
