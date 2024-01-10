@@ -14,7 +14,7 @@ function g() {
   if [[ $# > 0 ]]; then
     git $@
   else
-    git status -s
+    git status -s .
   fi
 }
 
