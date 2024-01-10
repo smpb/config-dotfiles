@@ -134,7 +134,15 @@ fi
 
 # prompt
 
-export PS1='%{$fg[red]%}%n@%m%{$fg[blue]%} %B%3~%b%{$reset_color%} %B$%b '
+# default values
+local PROMPT_NEWLINE=$'\n'
+local PROMPT_MACHINE_COLOR="%{$fg[red]%}"
+local PROMPT_MACHINE="%n@%m"
+local PROMPT_PATH_COLOR="%{$fg[blue]%}"
+local PROMPT_PATH="%B%3~%b%"
+local PROMPT_CHEVRON="%B$%b "
+local PROMPT_EXTRA=" "
+local PROMPT_RESET_COLOR="{$reset_color%}"
 
 #local RETURN_CODE="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 #local RETURN_CODE="%(?..%{$fg[red]%}%? %{$reset_color%})"
@@ -150,4 +158,9 @@ then
     source "$RCFILE"
   done
 fi
+
+# final configurations not to be overriden by `rc.d` add-ons
+
+# prompt setup
+PROMPT=$PROMPT_NEWLINE$PROMPT_MACHINE_COLOR$PROMPT_MACHINE' '$PROMPT_PATH_COLOR$PROMPT_PATH$PROMPT_RESET_COLOR$PROMPT_EXTRA$PROMPT_NEWLINE$PROMPT_CHEVRON
 

@@ -2,7 +2,8 @@
 # Git settings
 #
 
-local GIT_PROMPT_PREFIX="%{$fg[red]%} ["
+local GIT_PROMPT_COLOR="%{$fg[red]%}"
+local GIT_PROMPT_PREFIX=$GIT_PROMPT_COLOR"["
 local GIT_PROMPT_SUFFIX="]%{$reset_color%}"
 local GIT_DIRTY_STATUS="*" # ⚡
 local GIT_BEHIND_STATUS="<"
@@ -43,5 +44,4 @@ function parse_git_behind() {
   fi
 }
 
-export PS1='%{$fg[red]%}%n@%m%{$fg[blue]%} %B%3~%b$(git_prompt_info)%{$reset_color%} %B$%b '
-
+local PROMPT_EXTRA=$PROMPT_EXTRA'$(git_prompt_info)'
