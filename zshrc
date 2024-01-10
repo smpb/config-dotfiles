@@ -162,7 +162,9 @@ local PROMPT_RESET_COLOR="{$reset_color%}"
 #local RETURN_CODE="%(?..%{$fg[red]%}%? %{$reset_color%})"
 #export RPS1=$RETURN_CODE
 
-# source thematic configurations
+#
+# source non-core configurations
+#
 
 local RC_DIR="$ZSH_HOME/rc.d"
 if [[ -d $RC_DIR ]]
