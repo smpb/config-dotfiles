@@ -23,7 +23,6 @@ compdef g=git
 
 # get branch name, if it exists
 function git_prompt_info() {
-  #local REF=$(git name-rev HEAD 2>/dev/null | awk '{ print $2 }')
   local REF=$(git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
   if [[ -n $REF ]]; then
     echo "$GIT_PROMPT_PREFIX$REF$(parse_git_dirty)$(parse_git_behind)$GIT_PROMPT_SUFFIX"
