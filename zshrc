@@ -1,4 +1,6 @@
+#
 # init
+#
 
 local ZSH_HOME=~/.zsh
 
@@ -54,7 +56,9 @@ autoload colors && colors;
 export CLICOLOR=1
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 
+#
 # history
+#
 
 local HISTFILE=$ZSH_HOME/zsh_history
 local HISTSIZE=100000
@@ -67,7 +71,9 @@ setopt HIST_REDUCE_BLANKS       # remove superfluous blanks from each command li
 setopt HIST_VERIFY              # verify commands before executing them from history
 setopt INC_APPEND_HISTORY_TIME  # append new entries to the history file right after the command exits, with the elapsed time
 
+#
 # completion
+#
 
 autoload -U compinit # initialization
 
@@ -100,17 +106,23 @@ zstyle ':completion:*:approximate:*' max-errors 2 not-numeric
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*:descriptions' format %d
 
+#
 # correction
+#
 
 setopt CORRECT_ALL
 
-# make search up and down work,
-# so partially type and hit up/down to find relevant stuff
+#
+# search
+#
 
+# make search up/down work: partially type and hit arrows to find related items
 bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
 
+#
 # aliases
+#
 
 alias   cp='cp -v'
 alias   ll='ls -Flha'
@@ -132,7 +144,9 @@ if [[ $TERM == "xterm" || $TERM == "xterm-color" || $TERM == "xterm-256color" ||
   alias -g vim=gvim
 fi
 
+#
 # prompt
+#
 
 # default values
 local PROMPT_NEWLINE=$'\n'
@@ -159,7 +173,9 @@ then
   done
 fi
 
+#
 # final configurations not to be overriden by `rc.d` add-ons
+#
 
 # prompt setup
 PROMPT=$PROMPT_NEWLINE$PROMPT_MACHINE_COLOR$PROMPT_MACHINE' '$PROMPT_PATH_COLOR$PROMPT_PATH$PROMPT_RESET_COLOR$PROMPT_EXTRA$PROMPT_NEWLINE$PROMPT_CHEVRON
