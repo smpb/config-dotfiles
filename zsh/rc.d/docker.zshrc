@@ -87,7 +87,7 @@ function dk() {
 
     # Show IP addresses of containers
     ip|ips)
-       _docker_ips
+      _docker_ips
       ;;
 
     # Attach to a container's logs
