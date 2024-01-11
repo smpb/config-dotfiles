@@ -36,6 +36,11 @@ function dk() {
       command docker compose "$@"
       ;;
 
+    # Compose build
+    cmb)
+      command docker compose build
+      ;;
+
     # Compose down
     cmd)
       command docker compose down
