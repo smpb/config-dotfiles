@@ -29,6 +29,10 @@ function _docker_ips {
 #
 function dk() {
   case $1 in
+    # Print all the aliases
+    alias)
+      command echo "$(which dk | awk -v size=$(which dk | grep -c '') 'NR>2 && NR<(size-1)')"
+      ;;
 
     # Compose alias
     cm)
