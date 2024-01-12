@@ -61,8 +61,8 @@ export LSCOLORS="Gxfxcxdxbxegedabagacad"
 #
 
 local HISTFILE=$ZSH_HOME/zsh_history
-local HISTSIZE=100000
-local SAVEHIST=100000
+local HISTSIZE=100000           # how many lines of history to keep in memory
+local SAVEHIST=10000000         # how many lines to keep in the history file
 setopt EXTENDED_HISTORY         # save each command’s beginning timestamp and the duration
 setopt HIST_EXPIRE_DUPS_FIRST   # remove the oldest history events that have duplicates, first
 setopt HIST_IGNORE_DUPS         # ignore duplicates when adding commands to history
