@@ -6,25 +6,47 @@ local ZSH_HOME=~/.zsh
 
 if [[ "$OSTYPE" == "darwin"* ]];
 then
+  local OSXPATH
+
   # VS Code
   local VSCODE_BIN=/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin
   if [[ -d $VSCODE_BIN ]];
   then
-    PATH=$VSCODE_BIN:$PATH
+    if [[ -z "$OSXPATH" ]];
+    then
+      OSXPATH=$VSCODE_BIN
+    else
+      OSXPATH=$VSCODE_BIN:$OSXPATH
+    fi
   fi
 
   # MacVim
   local MACVIM_BIN=/Applications/MacVim.app/Contents/bin
   if [[ -d $MACVIM_BIN ]];
   then
-    PATH=$MACVIM_BIN:$PATH
+    if [[ -z "$OSXPATH" ]];
+    then
+      OSXPATH=$MACVIM_BIN
+    else
+      OSXPATH=$MACVIM_BIN:$OSXPATH
+    fi
   fi
 
   # Homebrew
   local HOMEBREW_BIN=/opt/homebrew/bin
   if [[ -d $HOMEBREW_BIN ]];
   then
-    PATH=$HOMEBREW_BIN:$PATH
+    if [[ -z "$OSXPATH" ]];
+    then
+      OSXPATH=$HOMEBREW_BIN
+    else
+      OSXPATH=$HOMEBREW_BIN:$OSXPATH
+    fi
+  fi
+
+  if [[ ! -z "$OSXPATH" ]];
+  then
+    PATH=$OSXPATH:$PATH
   fi
 elif [[ "$OSTYPE" == "linux-gnu"* ]];
 then
