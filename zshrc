@@ -162,7 +162,7 @@ then
 fi
 
 # only for graphical mode
-if [[ $TERM == "xterm" || $TERM == "xterm-color" || $TERM == "xterm-256color" || $TERM == "rxvt" ]]; then
+if (type gvim &>/dev/null) && [[ $TERM == "xterm" || $TERM == "xterm-color" || $TERM == "xterm-256color" || $TERM == "rxvt" ]]; then
   alias -g vim=gvim
 fi
 
