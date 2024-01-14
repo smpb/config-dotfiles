@@ -42,6 +42,9 @@ then
     else
       OSXPATH=$HOMEBREW_BIN:$OSXPATH
     fi
+
+    # include any available Homebrew completions
+    FPATH="/opt/homebrew/share/zsh/site-functions:${FPATH}"
   fi
 
   if [[ ! -z "$OSXPATH" ]];
@@ -98,12 +101,6 @@ setopt INC_APPEND_HISTORY_TIME  # append new entries to the history file right a
 #
 
 autoload -U compinit # initialization
-
-# macOS `brew` completions, if available
-if type brew &>/dev/null
-then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-fi
 
 compinit -d $ZSH_HOME/zcompdump
 
