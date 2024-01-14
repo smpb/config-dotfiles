@@ -100,7 +100,10 @@ setopt INC_APPEND_HISTORY_TIME  # append new entries to the history file right a
 # completion
 #
 
-autoload -U compinit # initialization
+# initialization
+#   -U  suppresses alias expansion
+#   -z  forces zsh-style loading in which the function definition file will be sourced only once
+autoload -Uz compinit
 
 compinit -d $ZSH_HOME/zcompdump
 
