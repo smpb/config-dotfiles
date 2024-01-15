@@ -227,6 +227,11 @@ if (type gvim &>/dev/null) && [[ $TERM == "xterm" || $TERM == "xterm-color" || $
   alias -g vim=gvim
 fi
 
+# jump into Tmux from SSH
+function ssht() {
+  ssh -t "$@" "sh -c 'tmux new -A -s $USER'"
+}
+
 #
 # prompt
 #
