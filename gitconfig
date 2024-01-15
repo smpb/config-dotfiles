@@ -79,3 +79,5 @@
   prompt = false
 [grep]
   lineNumber = true
+[includeIf "gitdir:~/Work/Developer/"]
+  path = ~/Work/Developer/.gitconfig
