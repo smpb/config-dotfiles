@@ -236,14 +236,19 @@ local PROMPT_NEWLINE=$'\n'
 local PROMPT_MACHINE_COLOR="%{$fg[red]%}"
 local PROMPT_MACHINE="%n@%m"
 local PROMPT_SESSION=""
+local PROMPT_SESSION_COLOR="%{$fg[yellow]%}"
 local PROMPT_PATH_COLOR="%{$fg[blue]%}"
 local PROMPT_PATH="%B%3~%b%"
 local PROMPT_CHEVRON="%B$%b "
 local PROMPT_EXTRA=" "
 local PROMPT_RESET_COLOR="{$reset_color%}"
 
-if [[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_TTY" ]]; then
-  PROMPT_SESSION=" %{$fg[yellow]%}[ssh]%{$reset_color%}"
+if [[ -n "$TMUX" ]];
+then
+  PROMPT_SESSION=' '$PROMPT_SESSION_COLOR'[tmux]'
+elif [[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_TTY" ]];
+then
+  PROMPT_SESSION=' '$PROMPT_SESSION_COLOR'[ssh]'
 fi
 
 #local RETURN_CODE="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
