@@ -204,6 +204,7 @@ alias   rm='rm -vI'
 alias   vi='nocorrect vim'
 alias  ...='cd ../..'
 alias  git='nocorrect git'
+alias grep='grep --color=auto'
 alias sudo='sudo '  # use alias expansion (otherwise sudo ignores other aliases)
 
 # use a better 'ls' on macOS (installed coreutils with Homebrew)
