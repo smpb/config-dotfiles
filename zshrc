@@ -207,7 +207,7 @@ alias  git='nocorrect git'
 alias grep='grep --color=auto'
 alias sudo='sudo '  # use alias expansion (otherwise sudo ignores other aliases)
 
-# use a better 'ls' on macOS (installed coreutils with Homebrew)
+# use a better 'ls' on macOS (installed via 'coreutils' in Homebrew)
 if type gls &>/dev/null
 then
   alias ls='gls --group-directories-first --color=auto'
@@ -228,6 +228,7 @@ if (type gvim &>/dev/null) && [[ $TERM == "xterm" || $TERM == "xterm-color" || $
 fi
 
 # jump into Tmux from SSH
+#   'sh' uses '-l' to load more $PATH because on macOS 'tmux' is in a non-standard place.
 function ssht() {
   ssh -t "$@" 'sh -l -c "tmux new -A -s $USER-ssh"'
 }
