@@ -77,9 +77,61 @@ unsetopt BEEP
 setopt AUTO_CD
 CDPATH=$HOME
 
+# Color codes:
+#   30 – black
+#   31 – red
+#   32 – green
+#   33 – orange
+#   34 – blue
+#   35 – magenta
+#   36 – cyan
+#   37 – white
+#   90 — dark grey
+#   91 — light red
+#   92 — light green
+#   93 — yellow
+#   94 — light blue
+#   95 — light purple
+#   96 — turquoise
+#
+# Background codes:
+#   40 — black
+#   41 — red
+#   42 — green
+#   43 — orange
+#   44 — blue
+#   45 — purple
+#   46 — cyan
+#   47 — grey
+#  100 — dark grey
+#  101 — light red
+#  102 — light green
+#  103 — yellow
+#  104 — light blue
+#  105 — light purple
+#  106 — turquoise
+#
+# Other escape codes:
+#    0 – reset/normal
+#    1 – bold
+#    3 – italic/reversed
+#    4 – underlined
+#    5 – blink
+#    7 — reverse (background colour on foreground colour)
+
 autoload colors && colors;
 export CLICOLOR=1
-export LSCOLORS="Gxfxcxdxbxegedabagacad"
+export LSCOLORS="Exfxcxdxbxegedabagacad" # https://gist.github.com/smpb/df1e788f0993fafc7f1e5fe3694612f1
+
+# add colors to 'less' and 'man'
+export MANPAGER='less -s -M +Gg'    # squeeze blank lines, prompt even more verbosely, jump around to count lines
+export PAGER='less -R'              # render color codes
+export LESS_TERMCAP_mb=$'\E[00;32m' # enter blinking mode
+export LESS_TERMCAP_md=$'\E[00;32m' # enter double-bright mode
+export LESS_TERMCAP_me=$'\E[0m'     # turn off all appearance modes (mb, md, so, us)
+export LESS_TERMCAP_se=$'\E[0m'     # leave standout mode
+export LESS_TERMCAP_ue=$'\E[0m'     # leave underline mode
+export LESS_TERMCAP_us=$'\E[00;31m' # enter underline mode
 
 #
 # history
