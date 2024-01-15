@@ -6,7 +6,7 @@ local ZSH_HOME=~/.zsh
 
 if [[ "$OSTYPE" == "darwin"* ]];
 then
-  local OSXPATH
+  local OSXPATH=""
 
   # VS Code
   local VSCODE_BIN=/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin
