@@ -234,11 +234,16 @@ fi
 local PROMPT_NEWLINE=$'\n'
 local PROMPT_MACHINE_COLOR="%{$fg[red]%}"
 local PROMPT_MACHINE="%n@%m"
+local PROMPT_SESSION=""
 local PROMPT_PATH_COLOR="%{$fg[blue]%}"
 local PROMPT_PATH="%B%3~%b%"
 local PROMPT_CHEVRON="%B$%b "
 local PROMPT_EXTRA=" "
 local PROMPT_RESET_COLOR="{$reset_color%}"
+
+if [[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_TTY" ]]; then
+  PROMPT_SESSION=" %{$fg[yellow]%}[ssh]%{$reset_color%}"
+fi
 
 #local RETURN_CODE="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 #local RETURN_CODE="%(?..%{$fg[red]%}%? %{$reset_color%})"
@@ -262,5 +267,5 @@ fi
 #
 
 # prompt setup
-PROMPT=$PROMPT_NEWLINE$PROMPT_MACHINE_COLOR$PROMPT_MACHINE' '$PROMPT_PATH_COLOR$PROMPT_PATH$PROMPT_RESET_COLOR$PROMPT_EXTRA$PROMPT_NEWLINE$PROMPT_CHEVRON
+PROMPT=$PROMPT_NEWLINE$PROMPT_MACHINE_COLOR$PROMPT_MACHINE$PROMPT_SESSION' '$PROMPT_PATH_COLOR$PROMPT_PATH$PROMPT_RESET_COLOR$PROMPT_EXTRA$PROMPT_NEWLINE$PROMPT_CHEVRON
 
