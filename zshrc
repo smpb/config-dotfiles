@@ -204,7 +204,7 @@ alias   rm='rm -vI'
 alias   vi='nocorrect vim'
 alias  ...='cd ../..'
 alias  git='nocorrect git'
-alias sudo='sudo '          # use alias expansion (otherwise sudo ignores other aliases)
+alias sudo='sudo '  # use alias expansion (otherwise sudo ignores other aliases)
 
 # use a better 'ls' on macOS (installed coreutils with Homebrew)
 if type gls &>/dev/null
