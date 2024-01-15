@@ -229,7 +229,7 @@ fi
 
 # jump into Tmux from SSH
 function ssht() {
-  ssh -t "$@" "sh -c 'tmux new -A -s $USER'"
+  ssh -t "$@" 'sh -l -c "tmux new -A -s $USER-ssh"'
 }
 
 #
