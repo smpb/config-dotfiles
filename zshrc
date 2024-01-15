@@ -147,13 +147,21 @@ bindkey '^[[B' down-line-or-search
 #
 
 alias   cp='cp -v'
-alias   ll='ls -Flha'
 alias   mv='mv -vi'
 alias   rm='rm -vI'
 alias   vi='nocorrect vim'
 alias  ...='cd ../..'
 alias  git='nocorrect git'
 alias sudo='sudo '          # use alias expansion (otherwise sudo ignores other aliases)
+
+# use a better 'ls' on macOS (installed coreutils with Homebrew)
+if type gls &>/dev/null
+then
+  alias ls='gls --group-directories-first --color=auto'
+  alias ll='gls -Flha --group-directories-first --color=auto'
+else
+  alias ll='ls -Flha'
+fi
 
 # use Visual Studio Code for `meld`
 if type code &>/dev/null
