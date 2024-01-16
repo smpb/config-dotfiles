@@ -233,6 +233,8 @@ function ssht() {
   ssh -t "$@" 'sh -l -c "tmux new -A -s $USER-ssh"'
 }
 
+compdef ssht=ssh
+
 #
 # prompt
 #
