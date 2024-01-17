@@ -11,9 +11,6 @@ esac
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-# filename patterns which match no files to expand to a null string
-shopt -s nullglob
-
 # configure prompt command to save and reload history
 export PROMPT_COMMAND='history -a; history -c; history -r;'
 
