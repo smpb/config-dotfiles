@@ -81,11 +81,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# disable completion after a space
-complete -D
-complete -cf sudo
-
-complete -F _longopt ll # complete the 'll' alias like 'ls'
+complete -cf sudo # for this 'c'ommand, completion may not be followed by 'f'ile names
 
 # check window size after each command
 shopt -s checkwinsize
