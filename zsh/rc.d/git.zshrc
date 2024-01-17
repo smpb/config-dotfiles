@@ -5,7 +5,8 @@
 local GIT_PROMPT_COLOR="%{$fg[red]%}"
 local GIT_PROMPT_PREFIX=$GIT_PROMPT_COLOR"["
 local GIT_PROMPT_SUFFIX="]%{$reset_color%}"
-local GIT_DIRTY_STATUS="*" # ⚡
+local GIT_DIRTY_STATUS="*"
+local GIT_STAGED_STATUS="+"
 local GIT_BEHIND_STATUS="<"
 
 # Use `g` instead of `git`:
@@ -26,13 +27,20 @@ compdef g=git
 function git_prompt_info() {
   local REF=$(git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
   if [[ -n $REF ]]; then
-    echo "$GIT_PROMPT_PREFIX$REF$(parse_git_dirty)$(parse_git_behind)$GIT_PROMPT_SUFFIX"
+    echo "$GIT_PROMPT_PREFIX$REF$(parse_git_dirty)$(parse_git_staged)$(parse_git_behind)$GIT_PROMPT_SUFFIX"
   fi
 }
 
-# should we show notification of changes to commit?
+# are there staged files waiting to be commited?
+function parse_git_staged() {
+  if [[ -n $(git diff --name-only --cached 2> /dev/null) ]]; then
+    echo " $GIT_STAGED_STATUS"
+  fi
+}
+
+# are there modified files?
 function parse_git_dirty() {
-  if [[ -n $(git status -s -uno 2> /dev/null) ]]; then
+  if [[ -n $(git ls-files -m 2> /dev/null) ]]; then
     echo " $GIT_DIRTY_STATUS"
   fi
 }
