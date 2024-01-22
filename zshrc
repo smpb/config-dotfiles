@@ -216,10 +216,12 @@ else
   alias ll='ls -Flha'
 fi
 
-# use Visual Studio Code for `meld`
-if type code &>/dev/null
+# use Neovim/Vim for `meld`
+if type nvim &>/dev/null
 then
-  alias -g meld='code --diff'
+  alias -g meld='nvim -d'
+else
+  alias -g meld='vim -d'
 fi
 
 # only for graphical mode
