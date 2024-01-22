@@ -185,6 +185,7 @@ zstyle ':completion:*:descriptions' format %d
 #
 
 setopt CORRECT_ALL
+CORRECT_IGNORE_FILE='.*'
 
 #
 # search
