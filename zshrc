@@ -272,7 +272,7 @@ fi
 local RC_DIR="$ZSH_HOME/rc.d"
 if [[ -d $RC_DIR ]]
 then
-  for RCFILE in "$RC_DIR"/*
+  for RCFILE in "$RC_DIR"/*.zshrc
   do
     source "$RCFILE"
   done
