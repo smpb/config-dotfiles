@@ -4,6 +4,7 @@
 
 # Generic
 .env
+tags
 
 # Go
 *.so
