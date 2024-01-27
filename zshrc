@@ -157,7 +157,14 @@ setopt INC_APPEND_HISTORY_TIME  # append new entries to the history file right a
 #   -z  forces zsh-style loading in which the function definition file will be sourced only once
 autoload -Uz compinit
 
-compinit -d $ZSH_HOME/zcompdump
+# if the completion cache is less than 24h old don't perform the check to see if there are new functions
+#   - 'N' makes the glob pattern evaluate to nothing when there is no match
+#   - '.' matches "regular files"
+#   - 'mh+24' modified hours > 24
+for dump in $ZSH_HOME/zcompdump(N.mh+24); do
+  compinit -d $ZSH_HOME/zcompdump
+done
+compinit -C -d $ZSH_HOME/zcompdump
 
 # display colors in selection menus
 zmodload -i zsh/complist
