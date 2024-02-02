@@ -240,7 +240,7 @@ fi
 # jump into Tmux from SSH
 #   'sh' uses '-l' to load more $PATH because on macOS 'tmux' is in a non-standard place.
 function ssht() {
-  ssh -A -t "$@" 'sh -l -c "tmux -u new -A -s $USER-ssh || tmux -u attach -t $USER-ssh || tmux -u new-session -s $USER-ssh" || $SHELL -l'
+  ssh -A -t "$@" 'sh -l -c "tmux -u new -A -s ssht || tmux -u attach -t ssht || tmux -u new-session -s ssht" || $SHELL -l'
 }
 
 compdef ssht=ssh
