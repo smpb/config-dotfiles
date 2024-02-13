@@ -251,7 +251,7 @@ compdef ssht=ssh
 
 # default values
 local PROMPT_NEWLINE=$'\n'
-local PROMPT_MACHINE_COLOR="%{$fg[red]%}"
+local PROMPT_MACHINE_COLOR="%{$fg[magenta]%}"
 local PROMPT_MACHINE="%n@%m"
 local PROMPT_SESSION=""
 local PROMPT_SESSION_COLOR="%{$fg[yellow]%}"
@@ -263,11 +263,15 @@ local PROMPT_RESET_COLOR="{$reset_color%}"
 
 if [[ -n "$TMUX" ]];
 then
-  PROMPT_SESSION=' '$PROMPT_SESSION_COLOR'[tmux]'
+  PROMPT_SESSION='(tmux)'
 elif [[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_TTY" ]];
 then
-  PROMPT_SESSION=' '$PROMPT_SESSION_COLOR'[ssh]'
+  PROMPT_SESSION='(ssh)'
 fi
+
+function set-prompt {
+  PROMPT=$PROMPT_NEWLINE$PROMPT_MACHINE_COLOR$PROMPT_MACHINE$PROMPT_SESSION' '$PROMPT_PATH_COLOR$PROMPT_PATH$PROMPT_RESET_COLOR$PROMPT_EXTRA$PROMPT_NEWLINE$PROMPT_CHEVRON
+}
 
 #local RETURN_CODE="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 #local RETURN_CODE="%(?..%{$fg[red]%}%? %{$reset_color%})"
@@ -290,6 +294,6 @@ fi
 # final configurations not to be overriden by `rc.d` add-ons
 #
 
-# prompt setup
-PROMPT=$PROMPT_NEWLINE$PROMPT_MACHINE_COLOR$PROMPT_MACHINE$PROMPT_SESSION' '$PROMPT_PATH_COLOR$PROMPT_PATH$PROMPT_RESET_COLOR$PROMPT_EXTRA$PROMPT_NEWLINE$PROMPT_CHEVRON
+# set the prompt
+set-prompt
 
