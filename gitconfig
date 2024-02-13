@@ -44,8 +44,12 @@
   # fix commits that have typos on the message and/or missing files
   #  missing files need to be added before invoking 'fix'
   fix = commit --amend
+  # [ fza = fzf add] list modified files with 'fzf' preview and add those selected
+  fza = "!git ls-files -m --exclude-standard | fzf -m --print0 --preview 'git diff --color=always {}' | xargs -0 git add"
   # the "Ramalho Syndrome"
   poop = stash pop
+  # return the root dir of the repo
+  root = rev-parse --show-toplevel
   # take a snapshot of your current working tree without removing the changes from your tree
   snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
   # [st = status] short status
