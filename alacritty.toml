@@ -27,7 +27,7 @@ color     = "0xdedad4"
 
 [window]
 dynamic_padding = false
-decorations     = "Buttonless"
+decorations     = "Transparent"
 
 [window.dimensions]
 columns = 120
@@ -35,7 +35,7 @@ lines   = 40
 
 [window.padding]
 x = 5
-y = 20
+y = 25
 
 [cursor]
 vi_mode_style = "Block"
