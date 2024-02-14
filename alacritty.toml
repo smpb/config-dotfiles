@@ -23,6 +23,17 @@ duration  = 100
 color     = "0xdedad4"
 
 
+# Input
+
+[keyboard]
+bindings = [
+  { key = "Right",  mods = "Alt",    chars = "\u001BF" }, # foward one word
+  { key = "Left",   mods = "Alt",    chars = "\u001BB" }, # back one word
+  { key = "Right",  mods = "Super",  chars = "\u0005" },  # end of the line
+  { key = "Left",   mods = "Super",  chars = "\u0001" },  # start of the line
+]
+
+
 # Looks
 
 [window]
