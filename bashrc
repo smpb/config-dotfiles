@@ -106,8 +106,17 @@ PROMPT_CHEVRON="\[\033[1m\]\$\[\033[0m\] "
 PROMPT_EXTRA=" "
 PROMPT_RESET_COLOR="\[\033[0m\]"
 
-if [[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_TTY" ]]; then
-  PROMPT_SESSION=" \[\033[0;33m[ssh]\[\033[0m\]"
+if [[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_TTY" ]];
+then
+  if [[ -n "$TMUX" ]];
+  then
+    PROMPT_SESSION='(ssh|tmux)'
+	else
+    PROMPT_SESSION='(ssh)'
+  fi
+elif [[ -n "$TMUX" ]];
+then
+  PROMPT_SESSION='(tmux)'
 fi
 
 # prompt setup

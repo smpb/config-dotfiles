@@ -256,13 +256,19 @@ local PROMPT_CHEVRON="%B$%b "
 local PROMPT_EXTRA=" "
 local PROMPT_RESET_COLOR="{$reset_color%}"
 
-if [[ -n "$TMUX" ]];
+if [[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_TTY" ]];
+then
+  if [[ -n "$TMUX" ]];
+  then
+    PROMPT_SESSION='(ssh|tmux)'
+  else
+    PROMPT_SESSION='(ssh)'
+  fi
+elif [[ -n "$TMUX" ]];
 then
   PROMPT_SESSION='(tmux)'
-elif [[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_TTY" ]];
-then
-  PROMPT_SESSION='(ssh)'
 fi
+
 
 function set-prompt {
   PROMPT=$PROMPT_NEWLINE$PROMPT_MACHINE_COLOR$PROMPT_MACHINE$PROMPT_SESSION' '$PROMPT_PATH_COLOR$PROMPT_PATH$PROMPT_RESET_COLOR$PROMPT_EXTRA$PROMPT_NEWLINE$PROMPT_CHEVRON
