@@ -232,11 +232,6 @@ else
   alias -g meld='vim -d'
 fi
 
-# only for graphical mode
-if (type gvim &>/dev/null) && [[ $TERM == "xterm" || $TERM == "xterm-color" || $TERM == "xterm-256color" || $TERM == "rxvt" ]]; then
-  alias -g vim=gvim
-fi
-
 # jump into Tmux from SSH
 #   'sh' uses '-l' to load more $PATH because on macOS 'tmux' is in a non-standard place.
 function ssht() {
