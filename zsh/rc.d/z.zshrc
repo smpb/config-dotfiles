@@ -22,5 +22,8 @@ then
 
   # load key bindings
   source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
+
+  # show a preview of the file when searching with ctrl+t
+  export FZF_CTRL_T_OPTS="--preview 'less {}'"
 fi
 
