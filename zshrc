@@ -77,6 +77,10 @@ unsetopt BEEP
 setopt AUTO_CD
 CDPATH=$HOME
 
+#
+
+export WORDCHARS=${WORDCHARS//[-=:\/]}
+
 # Color codes:
 #   30 – black
 #   31 – red
