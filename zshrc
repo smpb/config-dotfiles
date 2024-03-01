@@ -217,7 +217,7 @@ alias   vi='nocorrect vim'
 alias  ...='cd ../..'
 alias  git='nocorrect git'
 alias grep='grep --color=auto'
-alias sudo='sudo '  # use alias expansion (otherwise sudo ignores other aliases)
+alias sudo='sudo -E '  # use alias expansion (otherwise sudo ignores other aliases); preserve env
 
 # use a better 'ls' on macOS (installed via 'coreutils' in Homebrew)
 if type gls &>/dev/null
