@@ -137,6 +137,14 @@ export LESS_TERMCAP_se=$'\E[0m'     # leave standout mode
 export LESS_TERMCAP_ue=$'\E[0m'     # leave underline mode
 export LESS_TERMCAP_us=$'\E[00;31m' # enter underline mode
 
+export LESS=' -R -X -F '
+
+if type src-hilite-lesspipe.sh &>/dev/null
+then
+  LESSPIPE=`which src-hilite-lesspipe.sh`
+  export LESSOPEN="| ${LESSPIPE} %s"
+fi
+
 #
 # history
 #
