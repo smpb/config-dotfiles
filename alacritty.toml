@@ -46,7 +46,7 @@ lines   = 40
 
 [window.padding]
 x = 5
-y = 15
+y = 20
 
 [cursor]
 vi_mode_style = "Block"
