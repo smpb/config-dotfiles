@@ -47,6 +47,17 @@ then
     FPATH="/opt/homebrew/share/zsh/site-functions:${FPATH}"
   fi
 
+  local HOMEBREW_SBIN=/opt/homebrew/sbin
+  if [[ -d $HOMEBREW_SBIN ]];
+  then
+    if [[ -z "$OSXPATH" ]];
+    then
+      OSXPATH=$HOMEBREW_SBIN
+    else
+      OSXPATH=$HOMEBREW_SBIN:$OSXPATH
+    fi
+  fi
+
   if [[ ! -z "$OSXPATH" ]];
   then
     PATH=$OSXPATH:$PATH
