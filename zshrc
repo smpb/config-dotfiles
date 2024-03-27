@@ -58,6 +58,7 @@ then
     fi
   fi
 
+  # Finish
   if [[ ! -z "$OSXPATH" ]];
   then
     PATH=$OSXPATH:$PATH
