@@ -17,11 +17,8 @@ then
     PATH="${PATH:+${PATH}:}/opt/homebrew/opt/fzf/bin"
   fi
 
-  # load auto-completion
-  source "/opt/homebrew/opt/fzf/shell/completion.zsh"
-
-  # load key bindings
-  source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
+  # load auto-completion and key bindings
+  eval "$(fzf --zsh)"
 
   # show a preview of the file when searching with ctrl+t
   export FZF_CTRL_T_OPTS="--preview 'less {}'"
