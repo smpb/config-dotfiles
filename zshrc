@@ -243,9 +243,11 @@ alias sudo='sudo -E '  # use alias expansion (otherwise sudo ignores other alias
 if type gls &>/dev/null
 then
   alias ls='gls --group-directories-first --color=auto'
-  alias ll='gls -Flha --group-directories-first --color=auto'
+  alias ll='gls -Flh --group-directories-first --color=auto'
+  alias lla='gls -Flha --group-directories-first --color=auto'
 else
-  alias ll='ls -Flha'
+  alias ll='ls -Flh'
+  alias lla='ls -Flha'
 fi
 
 # use Neovim/Vim for `meld`
