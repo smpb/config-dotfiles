@@ -234,7 +234,6 @@ alias   cp='cp -v'
 alias   mv='mv -vi'
 alias   rm='rm -vI'
 alias   vi='nocorrect vim'
-alias  ...='cd ../..'
 alias  git='nocorrect git'
 alias grep='grep --color=auto'
 alias sudo='sudo -E '  # use alias expansion (otherwise sudo ignores other aliases); preserve env
