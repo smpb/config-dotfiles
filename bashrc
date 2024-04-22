@@ -53,8 +53,8 @@ alias   rm='rm -vI'
 alias   vi='vim'
 alias  git='git'
 alias grep='grep --color=auto'
-alias dosu='sudo -Es'
-alias sudo='sudo '  # use alias expansion (otherwise sudo ignores other aliases)
+alias sudo='sudo -E '  # use alias expansion (otherwise sudo ignores other aliases); preserve env
+
 
 #
 # completion
