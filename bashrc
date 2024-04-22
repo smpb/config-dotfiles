@@ -57,10 +57,6 @@ alias grep='grep --color=auto'
 alias dosu='sudo -Es'
 alias sudo='sudo '  # use alias expansion (otherwise sudo ignores other aliases)
 
-if type gvim &>/dev/null && [[ $TERM == "xterm" || $TERM == "xterm-color" || $TERM == "xterm-256color" || $TERM == "rxvt" ]]; then
-  alias vim=gvim
-fi
-
 #
 # completion
 #
