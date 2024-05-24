@@ -143,6 +143,8 @@ function dk() {
   esac
 }
 
+export BUILDX_EXPERIMENTAL=1
+
 alias docker=dk
 
 # Complete `dk` like `docker`
