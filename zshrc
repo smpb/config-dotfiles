@@ -233,7 +233,6 @@ bindkey '^[[B' down-line-or-search
 alias   cp='cp -v'
 alias   mv='mv -vi'
 alias   rm='rm -vI'
-alias   vi='nocorrect vim'
 alias  git='nocorrect git'
 alias grep='grep --color=auto'
 alias sudo='sudo -E '  # use alias expansion (otherwise sudo ignores other aliases); preserve env
@@ -249,12 +248,18 @@ else
   alias lla='ls -Flha'
 fi
 
-# use Neovim/Vim for `meld`
+# prefer Neovim, then Vim; always use the chosen one as `meld`
 if type nvim &>/dev/null
 then
-  alias -g meld='nvim -d'
+  alias vi=nvim
+  alias vim=nvim
+  alias meld='nvim -d'
+elif type vim &>/dev/null
+then
+  alias vi=vim
+  alias meld='vim -d'
 else
-  alias -g meld='vim -d'
+  alias meld='vi -d'
 fi
 
 # jump into Tmux from SSH
