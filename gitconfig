@@ -25,6 +25,8 @@
   assumed  = "!git ls-files -v | grep ^h | cut -c 3-"
   # stop assuming a file is never changed
   unassume = update-index --no-assume-unchanged
+  # blame, ignoring whitespace changes and following code movement aggressively
+  blccc = blame -w -C -C -C
   # [co = checkout]
   co  = checkout
   # [ci = commit]
@@ -87,3 +89,5 @@
   lineNumber = true
 [includeIf "gitdir:~/Work/Developer/"]
   path = ~/Work/Developer/.gitconfig
+[maintenance]
+	repo = /Users/smpb/Library/Mobile Documents/iCloud~md~obsidian/Documents/Trove
