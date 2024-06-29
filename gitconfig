@@ -48,6 +48,8 @@
   # fix commits that have typos on the message and/or missing files
   #  missing files need to be added before invoking 'fix'
   fix = commit --amend
+  # [fp = force push] check if anyone pushed and only force push if no
+  fp = push --force-with-lease
   # [ fza = fzf add] list modified files with 'fzf' preview and add those selected
   fza = "!git ls-files -m --exclude-standard | fzf -m --print0 --preview 'git diff --color=always {}' | xargs -0 git add"
   # the "Ramalho Syndrome"
