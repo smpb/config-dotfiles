@@ -283,7 +283,7 @@ local PROMPT_SESSION_COLOR="%{$fg[yellow]%}"
 local PROMPT_PATH_COLOR="%{$fg[blue]%}"
 local PROMPT_PATH="%B%10~%b%"
 local PROMPT_CHEVRON="%B$%b "
-local PROMPT_EXTRA=" "
+local PROMPT_EXTRA=""
 local PROMPT_RESET_COLOR="{$reset_color%}"
 
 if [[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_TTY" ]];
