@@ -3,11 +3,11 @@
 #
 
 local GIT_PROMPT_COLOR="%{$fg[red]%}"
-local GIT_PROMPT_PREFIX=$GIT_PROMPT_COLOR" "
-local GIT_PROMPT_SUFFIX="%{$reset_color%}"
-local GIT_DIRTY_STATUS="%{$fg[yellow]%}[]%{$reset_color%}"
-local GIT_STAGED_STATUS="%{$fg[green]%}[]%{$reset_color%}"
-local GIT_BEHIND_STATUS="%{$fg[cyan]%}[]%{$reset_color%}"
+local GIT_PROMPT_PREFIX=$GIT_PROMPT_COLOR"  "
+local GIT_PROMPT_SUFFIX=$GIT_PROMPT_COLOR"%{$reset_color%}"
+local GIT_DIRTY_STATUS="%{$fg[yellow]%}"
+local GIT_STAGED_STATUS="%{$fg[green]%}"
+local GIT_BEHIND_STATUS="%{$fg[cyan]%}"
 
 # Use `g` instead of `git`:
 #   With no arguments: `git status`
