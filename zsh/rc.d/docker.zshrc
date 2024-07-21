@@ -143,10 +143,12 @@ function dk() {
   esac
 }
 
-export BUILDX_EXPERIMENTAL=1
+if type docker &>/dev/null
+then
+  export BUILDX_EXPERIMENTAL=1
 
-alias docker=dk
+  alias docker=dk
 
-# Complete `dk` like `docker`
-compdef dk=docker
-
+  # Complete `dk` like `docker`
+  compdef dk=docker
+fi
