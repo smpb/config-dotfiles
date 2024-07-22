@@ -165,7 +165,7 @@ fi
 #
 
 local HISTFILE=$ZSH_HOME/zsh_history
-local HISTORY_IGNORE='([ \t]*|[bf]g|cd|cd ..|clear|dk cmb|dk cmd|dk cmu|dk ps|dk psa|dk rmb|dk rmi|g|g co *|g df|g dfs|g lp|g pull|g push|g st|g stu|ll|lla|ls|pwd|reset|z)'
+local HISTORY_IGNORE='([ \t]*|[bf]g|cd|cd ..|clear|dk cmb|dk cmd|dk cmu|dk ps|dk psa|dk rmb|dk rmi|g|g co *|g df|g dfs|g lp|g poop|g pull|g push|g st|g stash|g stu|ll|lla|ls|pwd|reset|z)'
 local HISTSIZE=100000           # how many lines of history to keep in memory
 local SAVEHIST=10000000         # how many lines to keep in the history file
 setopt EXTENDED_HISTORY         # save each command’s beginning timestamp and the duration
