@@ -15,8 +15,11 @@ do
 
   if [[ ! -e $TARGET ]]
   then
-    echo "Creating a symlink of '$FILE' to '$TARGET'."
-    ln -s "$FILE" "$TARGET"
+    if [[ $TARGET != *.md ]]
+    then
+      echo "Creating a symlink of '$FILE' to '$TARGET'."
+      # ln -s "$FILE" "$TARGET"
+    fi
   else
     echo "SKIPPED: '$TARGET' already exists!"
   fi
