@@ -6,6 +6,7 @@ local KUBE_PROMPT_PATH=${KUBE_PROMPT_PATH:-}
 local KUBE_PROMPT_COLOR=${KUBE_PROMPT_COLOR:-"%{$fg[magenta]%}"}
 local KUBE_PROMPT_PREFIX=${KUBE_PROMPT_PREFIX:-$KUBE_PROMPT_COLOR" 󰔆 "}
 local KUBE_PROMPT_SUFFIX=${KUBE_PROMPT_SUFFIX:-"%{$reset_color%}"}
+local KUBE_PROMPT_DIVIDER=${KUBE_PROMPT_DIVIDER:-"󰇙"}
 
 function is_kubedir() {
   # if we defined a path to check, use that
@@ -31,7 +32,7 @@ function kube_namespace {
 
 function kube_prompt_info() {
   if RES=$(is_kubedir); then
-    echo "$KUBE_PROMPT_PREFIX$(kube_context)󰇙$(kube_namespace)$KUBE_PROMPT_SUFFIX"
+    echo "$KUBE_PROMPT_PREFIX$(kube_context)$KUBE_PROMPT_DIVIDER$(kube_namespace)$KUBE_PROMPT_SUFFIX"
   fi
 }
 
