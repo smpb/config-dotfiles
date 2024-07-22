@@ -81,6 +81,9 @@ export LANG=en_US.UTF-8
 
 #
 
+# bindkey -v    # activate vi mode
+# KEYTIMEOUT=10 # reduce mode switching delay
+
 setopt PROMPT_SUBST
 setopt NOMATCH
 setopt NOTIFY
@@ -304,9 +307,9 @@ function set-prompt {
   PROMPT=$PROMPT_NEWLINE$PROMPT_MACHINE_COLOR$PROMPT_MACHINE$PROMPT_SESSION' '$PROMPT_PATH_COLOR$PROMPT_PATH$PROMPT_RESET_COLOR$PROMPT_EXTRA$PROMPT_NEWLINE$PROMPT_CHEVRON
 }
 
-#local RETURN_CODE="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
-#local RETURN_CODE="%(?..%{$fg[red]%}%? %{$reset_color%})"
-#export RPS1=$RETURN_CODE
+# local RETURN_CODE="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
+# local RETURN_CODE="%(?..%{$fg[red]%}%? %{$reset_color%})"
+# export RPS1=$RETURN_CODE
 
 #
 # source non-core configurations
