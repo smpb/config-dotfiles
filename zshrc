@@ -243,12 +243,19 @@ alias sudo='sudo -E '  # use alias expansion (otherwise sudo ignores other alias
 # use a better 'ls' on macOS (installed via 'coreutils' in Homebrew)
 if type gls &>/dev/null
 then
-  alias ls='gls --group-directories-first --color=auto'
-  alias ll='gls -Flh --group-directories-first --color=auto'
-  alias lla='gls -Flha --group-directories-first --color=auto'
+  alias  ls='gls --group-directories-first --color=auto'
+  alias  ll='gls -lhF --group-directories-first --color=auto'
+  alias lla='gls -lhAF --group-directories-first --color=auto'
 else
-  alias ll='ls -Flh'
-  alias lla='ls -Flha'
+  alias  ll='ls -lhF'
+  alias lla='ls -lhAF'
+fi
+
+# use 'eza' for detailed listings, if available
+if type eza &>/dev/null
+then
+  alias  ll='eza -olhgF --no-permissions --group-directories-first --color-scale=all --time-style=long-iso --git'
+  alias lla='eza -olhgAF --no-permissions --group-directories-first --color-scale=all --time-style=long-iso --git'
 fi
 
 # prefer Neovim, then Vim; always use the chosen one as `meld`
