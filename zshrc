@@ -89,9 +89,6 @@ setopt NOMATCH
 setopt NOTIFY
 unsetopt BEEP
 
-setopt AUTO_CD
-CDPATH=$HOME
-
 #
 
 export WORDCHARS=${WORDCHARS//[-=:\/]}
