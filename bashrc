@@ -95,7 +95,7 @@ PROMPT_SESSION=""
 PROMPT_PATH_COLOR="\[\033[0;34m\]"
 PROMPT_PATH="\[\033[1m\]\w\[\033[0m\]"
 PROMPT_CHEVRON="\[\033[1m\]\$\[\033[0m\] "
-PROMPT_EXTRA=" "
+PROMPT_EXTRA=""
 PROMPT_RESET_COLOR="\[\033[0m\]"
 
 if [[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_TTY" ]];
