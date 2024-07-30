@@ -33,12 +33,15 @@
   ci  = commit
   # [cim = commit -m] commit with message
   cim = commit -m
-  # [df = diff]
-  df  = diff
-  # [dfs = diff --staged] view the changes you staged for the next commit
-  dfs = diff --staged
-  # [dfw = diff --word-diff=color] Show a word diff, with color delimiting changed words
-  dfw = diff --word-diff=color
+  # [df = diff] default to 'histogram' algorithm
+  df  = diff --histogram
+  # [dfs = df --staged] view the changes you staged for the next commit
+  dfs = df --staged
+  # [dfw = df --color-words=regex] show a word diff, with color delimiting changed words, and customize word boundaries
+  dfw = df --color-words="[^[:space:],:;_.]+"
+  # [dfsw = dfw --staged] view the changes you staged for the next commit in a word diff
+  dfsw = dfw --staged
+  dfws = dfsw
   # [l = log] short one line logs with ref-names
   l   = log --oneline --name-status --decorate=short
   # [lp = log] short one line logs with ref-names, date and author - nice colored
