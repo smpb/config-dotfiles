@@ -14,10 +14,6 @@ export LANG=en_US.UTF-8
 # configure prompt command to save and reload history
 export PROMPT_COMMAND='history -a; history -c; history -r;'
 
-# enable autocd and set CDPATH
-shopt -s autocd
-CDPATH=$HOME
-
 # add colors to 'less' and 'man'
 export MANPAGER='less -s -M +Gg'    # squeeze blank lines, prompt even more verbosely, jump around to count lines
 export PAGER='less -R'              # render color codes
