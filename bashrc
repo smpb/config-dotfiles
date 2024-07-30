@@ -42,8 +42,8 @@ shopt -s extglob
 #
 
 alias   cp='cp -v'
-alias   ll='ls -Flh --group-directories-first --color=auto'
-alias lla='ls -Flha --group-directories-first --color=auto'
+alias   ll='ls -lhF  --group-directories-first --color=auto'
+alias  lla='ls -lhAF --group-directories-first --color=auto'
 alias   mv='mv -vi'
 alias   rm='rm -vI'
 alias   vi='vim'
