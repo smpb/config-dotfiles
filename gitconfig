@@ -93,5 +93,3 @@
   lineNumber = true
 [includeIf "gitdir:~/Work/Developer/"]
   path = ~/Work/Developer/.gitconfig
-[maintenance]
-	repo = /Users/smpb/Library/Mobile Documents/iCloud~md~obsidian/Documents/Trove
