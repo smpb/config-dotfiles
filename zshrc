@@ -259,12 +259,20 @@ fi
 # prefer Neovim, then Vim; always use the chosen one as `meld`
 if type nvim &>/dev/null
 then
-  alias vi=nvim
-  alias vim=nvim
+  export EDITOR='nvim'
+  export VISUAL='nvim'
+
+  alias   vi=nvim
+  alias  vim=nvim
+  alias gvim=nvim
   alias meld='nvim -d'
 elif type vim &>/dev/null
 then
-  alias vi=vim
+  export EDITOR='vim'
+  export VISUAL='vim'
+
+  alias   vi=vim
+  alias gvim=vim
   alias meld='vim -d'
 else
   alias meld='vi -d'
