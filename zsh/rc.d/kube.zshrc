@@ -41,6 +41,11 @@ then
   alias k='kubectl'
 
   local PROMPT_EXTRA=$PROMPT_EXTRA'$(kube_prompt_info)'
+
+  if kubectl krew >/dev/null 2>&1
+  then
+    PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+  fi
 fi
 
 if type helm &>/dev/null
