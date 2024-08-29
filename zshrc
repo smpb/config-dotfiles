@@ -91,7 +91,7 @@ unsetopt BEEP
 
 #
 
-export WORDCHARS=${WORDCHARS//[-=:\/]}
+export WORDCHARS=${WORDCHARS//[-=:\/@\.]}
 
 # Color codes:
 #   30 – black
