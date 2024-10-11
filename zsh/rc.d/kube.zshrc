@@ -46,6 +46,11 @@ then
   then
     PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
   fi
+
+  if [[ -d $HOME/.kube/yaml ]]
+  then
+    export KUBECONFIG=$(for YAML in $(find $HOME/.kube/yaml -type f -name '*.yaml') ; do echo -n ":$YAML"; done | sed 's/://')
+  fi
 fi
 
 if type helm &>/dev/null
