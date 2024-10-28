@@ -24,6 +24,14 @@ function _docker_ips {
   echo $OUT | column -t
 }
 
+# Set the docker host socket, if needed
+function _docker_host {
+  if type colima &>/dev/null
+  then
+    export DOCKER_HOST="unix://$(find ~/.colima -name docker.sock -print -quit 2> /dev/null)"
+  fi
+}
+
 #
 # an approach similar to 'git' aliases
 #
@@ -76,6 +84,12 @@ function dk() {
     ex)
       shift 1
       command docker exec -u root -it $1 ${2:-bash}
+      ;;
+
+    # Set the Docker host socket, if needed
+    host)
+      _docker_host
+      echo $DOCKER_HOST
       ;;
 
     # Docker images alias
@@ -152,3 +166,5 @@ then
   # Complete `dk` like `docker`
   compdef dk=docker
 fi
+
+_docker_host
