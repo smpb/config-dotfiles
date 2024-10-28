@@ -18,7 +18,7 @@ then
   fi
 
   # load auto-completion and key bindings
-  eval "$(fzf --zsh)"
+  eval "$(fzf --zsh > /dev/null 2>&1)"
 
   # show a preview of the file when searching with ctrl+t
   export FZF_CTRL_T_OPTS="--preview 'less {}'"
