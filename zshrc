@@ -340,6 +340,7 @@ fi
 #
 # final configurations not to be overriden by `rc.d` add-ons
 #
+export ZSH_INITIALIZED=1
 
 # set the prompt
 set-prompt
