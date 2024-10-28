@@ -256,6 +256,12 @@ then
   alias lla='eza -olhgAF --no-permissions --group-directories-first --color-scale=all --time-style=long-iso --git'
 fi
 
+# use 'bat' as 'less', if available
+if type bat &>/dev/null
+then
+  alias less='bat --theme TwoDark'
+fi
+
 # prefer Neovim, then Vim; always use the chosen one as `meld`
 if type nvim &>/dev/null
 then
