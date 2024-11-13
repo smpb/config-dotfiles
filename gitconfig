@@ -94,6 +94,8 @@
   tool = meld
 [diff]
   tool = meld
+  noprefix = true
+  relative = true
   # moved lines will be colored differently in diff, so that code motions not confused with additions and deletions
   colormoved = "default"
   colormovedws = "allow-indentation-change"
