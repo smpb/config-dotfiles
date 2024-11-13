@@ -35,8 +35,12 @@
   cim = commit -m
   # [df = diff] default to 'histogram' algorithm
   df  = diff --histogram
+  # [dfsd = delta diff] view changes side-by-side
+  dfsd = -c delta.features=side-by-side df
   # [dfs = df --staged] view the changes you staged for the next commit
   dfs = df --staged
+  # [dfssd = delta diff] view staged changes side-by-side
+  dfssd = -c delta.features=side-by-side dfs
   # [dfw = df --color-words=regex] show a word diff, with color delimiting changed words, and customize word boundaries
   dfw = df --color-words="[^[:space:],:;_.]+"
   # [dfsw = dfw --staged] view the changes you staged for the next commit in a word diff
@@ -81,6 +85,9 @@
   who = shortlog --summary --email --numbered --no-merges
 [core]
   excludesfile = ~/.gitignore
+  pager = delta
+[interactive]
+  diffFilter = delta --color-only
 [push]
   default = tracking
 [merge]
@@ -94,5 +101,42 @@
   prompt = false
 [grep]
   lineNumber = true
+[delta]
+  # based off of "villsau" by https://github.com/torarnv
+  dark = true
+  blame-code-style = syntax
+  blame-format = "{commit:<12.10} {timestamp:<21.19} {author:<14.12}"
+  blame-palette = "#2E3440 #3B4252 #434C5E #4C566A"
+  blame-separator-format = "│{n:^4_block}"
+  blame-separator-style = "#4C566A"
+  blame-timestamp-output-format = "%Y/%m/%d %H:%M:%S"
+  file-style = omit
+  grep-context-line-style = dim syntax
+  grep-file-style = dim yellow
+  grep-line-number-style = dim cyan
+  grep-match-line-style = syntax
+  grep-output-type = classic
+  hunk-header-decoration-style = omit
+  hunk-header-file-style = dim yellow
+  hunk-header-line-number-style = dim cyan
+  hunk-header-style = file line-number syntax
+  line-numbers = true
+  line-numbers-minus-style = brightred
+  line-numbers-plus-style = brightgreen
+  line-numbers-left-style = "#5E81AC"
+  line-numbers-right-style = "#5E81AC"
+  line-numbers-zero-style = "#4C566A"
+  minus-emph-style = black red
+  minus-empty-line-marker-style = normal "#3f0001"
+  minus-non-emph-style = red
+  minus-style = bold red
+  navigate = true
+  plus-emph-style = black green
+  plus-empty-line-marker-style = normal "#002800"
+  plus-non-emph-style = green
+  plus-style = bold green
+  syntax-theme = OneHalfDark
+  whitespace-error-style = reverse red
+  zero-style = dim syntax
 [includeIf "gitdir:~/Work/Developer/"]
   path = ~/Work/Developer/.gitconfig
