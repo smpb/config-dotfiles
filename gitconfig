@@ -1,6 +1,7 @@
 [user]
   name = Sérgio Bernardino
   email = me@sergiobernardino.net
+  signingkey = ~/.ssh/key.pub
 [color]
   branch = auto
   diff   = auto
@@ -88,6 +89,10 @@
   pager = delta
 [interactive]
   diffFilter = delta --color-only
+[commit]
+  gpgsign = true
+[tag]
+  gpgsign = true
 [push]
   default = tracking
 [merge]
@@ -102,6 +107,10 @@
   colormovedws = "allow-indentation-change"
 [difftool]
   prompt = false
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  allowedSignersFile = ~/.ssh/allowed_signers
 [grep]
   lineNumber = true
 [delta]
