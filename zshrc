@@ -58,6 +58,12 @@ then
     fi
   fi
 
+  local TAILSCALE_BIN=/Applications/Tailscale.app/Contents/MacOS
+  if [[ -d $TAILSCALE_BIN ]];
+  then
+    alias tailscale="${TAILSCALE_BIN}/Tailscale"
+  fi
+
   # Finish
   if [[ ! -z "$OSXPATH" ]];
   then
