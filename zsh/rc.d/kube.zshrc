@@ -40,6 +40,12 @@ if type kubectl &>/dev/null
 then
   alias k='kubectl'
 
+  if type kubecolor &>/dev/null
+  then
+    alias k='kubecolor'
+    compdef kubecolor=kubectl
+  fi
+
   local PROMPT_EXTRA=$PROMPT_EXTRA'$(kube_prompt_info)'
 
   if kubectl krew >/dev/null 2>&1
