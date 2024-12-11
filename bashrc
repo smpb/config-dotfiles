@@ -44,12 +44,18 @@ shopt -s extglob
 alias   cp='cp -v'
 alias   ll='ls -lhF  --group-directories-first --color=auto'
 alias  lla='ls -lhAF --group-directories-first --color=auto'
+alias   lt='ls -d "$PWD"/* "$PWD"/**/* --color=auto'
 alias   mv='mv -vi'
 alias   rm='rm -vI'
 alias   vi='vim'
 alias  git='git'
 alias grep='grep --color=auto'
 alias sudo='sudo -E '  # use alias expansion (otherwise sudo ignores other aliases); preserve env
+
+if type tree &>/dev/null
+then
+  alias lt='tree -C'
+fi
 
 
 #

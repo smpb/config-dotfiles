@@ -168,7 +168,7 @@ fi
 #
 
 local HISTFILE=$ZSH_HOME/zsh_history
-local HISTORY_IGNORE='([ \t]*|[bf]g|cd|cd ..|clear|dk cmb|dk cmd|dk cmu|dk ps|dk psa|dk rmb|dk rmi|g|g co *|g df|g dfs|g lp|g poop|g pull|g push|g st|g stash|g stu|ll|lla|ls|pwd|reset|z)'
+local HISTORY_IGNORE='([ \t]*|[bf]g|cd|cd ..|clear|dk cmb|dk cmd|dk cmu|dk ps|dk psa|dk rmb|dk rmi|g|g co *|g df|g dfs|g lp|g poop|g pull|g push|g st|g stash|g stu|ll|lla|ls|lt|pwd|reset|z)'
 local HISTSIZE=100000           # how many lines of history to keep in memory
 local SAVEHIST=10000000         # how many lines to keep in the history file
 setopt EXTENDED_HISTORY         # save each command’s beginning timestamp and the duration
@@ -250,16 +250,24 @@ then
   alias  ls='gls --group-directories-first --color=auto'
   alias  ll='gls -lhF --group-directories-first --color=auto'
   alias lla='gls -lhAF --group-directories-first --color=auto'
+  alias  lt='gls -d "$PWD"/* "$PWD"/**/* --color=auto'
 else
   alias  ll='ls -lhF'
   alias lla='ls -lhAF'
+  alias  lt='ls -d "$PWD"/* "$PWD"/**/*'
+fi
+
+if type tree &>/dev/null
+then
+  alias lt='tree -C'
 fi
 
 # use 'eza' for detailed listings, if available
 if type eza &>/dev/null
 then
-  alias  ll='eza -olhgF --no-permissions --group-directories-first --color-scale=all --time-style=long-iso --git'
+  alias  ll='eza -olhgF  --no-permissions --group-directories-first --color-scale=all --time-style=long-iso --git'
   alias lla='eza -olhgAF --no-permissions --group-directories-first --color-scale=all --time-style=long-iso --git'
+  alias  lt='eza -olhgTF --no-permissions --group-directories-first --color-scale=all --time-style=long-iso --git'
 fi
 
 # use 'bat' as 'less', if available
