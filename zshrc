@@ -90,6 +90,9 @@ export LANG=en_US.UTF-8
 # bindkey -v    # activate vi mode
 # KEYTIMEOUT=10 # reduce mode switching delay
 
+setopt noclobber    # don't overwrite existing files with output redirection (force it with >| or >!)
+setopt appendcreate # the above disables file creation by appending with output redirection, and this re-enables it
+
 setopt PROMPT_SUBST # allow command substitution in prompts (e.g. `$(date)`)
 setopt NOMATCH      # don't treat patterns that don't match as errors
 setopt NOTIFY       # report the completion status of background jobs immediately
