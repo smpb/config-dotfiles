@@ -237,7 +237,13 @@ bindkey '^[[B' down-line-or-search
 # aliases
 #
 
-alias   cp='cp -v'
+if [[ "$OSTYPE" == "darwin"* ]];
+then
+  alias   cp='cp -vc'  # macOS 'cp` with APFS can create copy on write clones of files
+else
+  alias   cp='cp -v'
+fi
+
 alias   mv='mv -vi'
 alias   rm='rm -vI'
 alias  git='nocorrect git'
