@@ -90,10 +90,10 @@ export LANG=en_US.UTF-8
 # bindkey -v    # activate vi mode
 # KEYTIMEOUT=10 # reduce mode switching delay
 
-setopt PROMPT_SUBST
-setopt NOMATCH
-setopt NOTIFY
-unsetopt BEEP
+setopt PROMPT_SUBST # allow command substitution in prompts (e.g. `$(date)`)
+setopt NOMATCH      # don't treat patterns that don't match as errors
+setopt NOTIFY       # report the completion status of background jobs immediately
+unsetopt BEEP       # disable the terminal bell for errors
 
 #
 
