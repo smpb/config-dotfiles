@@ -3,7 +3,7 @@
 # Contents: https://github.com/github/gitignore
 
 # Generic
-*.nocommit
+*nocommit*
 .env
 tags
 
