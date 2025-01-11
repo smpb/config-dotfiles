@@ -82,6 +82,18 @@ then
   PATH=$GO_DIR/bin:$PATH
 fi
 
+# XDG Base Directory Specification
+export XDG_LOCAL_HOME=$HOME/.local
+export XDG_BIN_HOME=$XDG_LOCAL_HOME/bin
+export XDG_DATA_HOME=$XDG_LOCAL_HOME/share
+export XDG_STATE_HOME=$XDG_LOCAL_HOME/state
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+
+PATH=$XDG_BIN_HOME:$PATH
+
+#
+
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
