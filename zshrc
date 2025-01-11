@@ -192,13 +192,16 @@ setopt INC_APPEND_HISTORY_TIME  # append new entries to the history file right a
 autoload -Uz compinit
 
 # if the completion cache is less than 24h old don't perform the check to see if there are new functions
-#   - 'N' makes the glob pattern evaluate to nothing when there is no match
-#   - '.' matches "regular files"
-#   - 'mh+24' modified hours > 24
-for dump in $ZSH_HOME/zcompdump(N.mh+24); do
+#   - '#q'    explicit glob qualifier that makes globbing work within [[ ]]
+#   - 'N'     makes the glob pattern evaluate to nothing when there is no match
+#   - '.'     matches plain files
+#   - 'mh+24' matches files modified more than 24h ago
+if [[ -f $ZSH_HOME/zcompdump(#qN.mh+24) ]]; then
   compinit -d $ZSH_HOME/zcompdump
-done
-compinit -C -d $ZSH_HOME/zcompdump
+  touch $ZSH_HOME/zcompdump
+else
+  compinit -C -d $ZSH_HOME/zcompdump
+fi
 
 # display colors in selection menus
 zmodload -i zsh/complist
