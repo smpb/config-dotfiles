@@ -22,5 +22,18 @@ then
 
   # show a preview of the file when searching with ctrl+t
   export FZF_CTRL_T_OPTS="--preview 'less {}'"
+
+  # override the default reverse search
+  # necessary for machines with a large history file
+  fzf-full-history-widget() {
+    BUFFER=$(tac $HISTFILE | perl -0 -ne 'if (!$seen{(/^\s*[0-9]+\**\t(.*)/s, $1)}++) { s/\n/\n\t/g; print; }' | perl -pe 's/^[^;]*;//' | fzf --height 40% --scheme=history)
+    CURSOR=${#BUFFER}
+    zle reset-prompt
+  }
+
+  zle     -N            fzf-full-history-widget
+  bindkey -M emacs '^R' fzf-full-history-widget
+  bindkey -M vicmd '^R' fzf-full-history-widget
+  bindkey -M viins '^R' fzf-full-history-widget
 fi
 
