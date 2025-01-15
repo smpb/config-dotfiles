@@ -203,12 +203,7 @@ setopt INC_APPEND_HISTORY_TIME  # append new entries to the history file right a
 #   -z  forces zsh-style loading in which the function definition file will be sourced only once
 autoload -Uz compinit
 
-# if the completion cache is less than 24h old don't perform the check to see if there are new functions
-#   - '#q'    explicit glob qualifier that makes globbing work within [[ ]]
-#   - 'N'     makes the glob pattern evaluate to nothing when there is no match
-#   - '.'     matches plain files
-#   - 'mh+24' matches files modified more than 24h ago
-if [[ -f $ZSH_HOME/zcompdump(#qN.mh+24) ]]; then
+if [[ $(find "$ZSH_HOME/zcompdump" -mtime +0 2>/dev/null) ]]; then
   compinit -d $ZSH_HOME/zcompdump
   touch $ZSH_HOME/zcompdump
 else
