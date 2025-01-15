@@ -182,7 +182,8 @@ fi
 # history
 #
 
-local HISTFILE=$ZSH_HOME/zsh_history
+local HISTNAME=zsh_history
+local HISTFILE=$ZSH_HOME/$HISTNAME
 local HISTORY_IGNORE='([ \t]*|[bf]g|cd|cd ..|clear|dk cmb|dk cmd|dk cmu|dk ps|dk psa|dk rmb|dk rmi|g|g co *|g df|g dfs|g lp|g poop|g pull|g push|g st|g stash|g stu|ll|lla|ls|lt|pwd|reset|z)'
 local HISTSIZE=100000           # how many lines of history to keep in memory
 local SAVEHIST=10000000         # how many lines to keep in the history file
@@ -193,6 +194,22 @@ setopt HIST_IGNORE_SPACE        # ignore commands with leading whitespace in his
 setopt HIST_REDUCE_BLANKS       # remove superfluous blanks from each command line being added to the history
 setopt HIST_VERIFY              # verify commands before executing them from history
 setopt INC_APPEND_HISTORY_TIME  # append new entries to the history file right after the command exits, with the elapsed time
+
+# backup history file with rotation
+if [[ $(find "$HISTFILE.tgz" -mtime +0 2>/dev/null) ]]; then
+  for i in {4..1}
+  do
+    if [[ -f $HISTFILE.$i.tgz ]]; then
+      mv $HISTFILE.$i.tgz $HISTFILE.$((i+1)).tgz
+    fi
+  done
+
+  if [[ -f $HISTFILE.tgz ]]; then
+    mv $HISTFILE.tgz $HISTFILE.1.tgz
+  fi
+
+  tar czf $HISTFILE.tgz -C $ZSH_HOME $HISTNAME
+fi
 
 #
 # completion
