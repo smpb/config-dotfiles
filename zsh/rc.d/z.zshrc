@@ -26,7 +26,7 @@ then
   # override the default reverse search
   # necessary for machines with a large history file
   fzf-full-history-widget() {
-    BUFFER=$(tac $HISTFILE | perl -0 -ne 'if (!$seen{(/^\s*[0-9]+\**\t(.*)/s, $1)}++) { s/\n/\n\t/g; print; }' | perl -pe 's/^[^;]*;//' | LC_ALL=C awk '{ line = tolower($0); if (!seen[line]++) print }' | fzf --height 40% --scheme=history)
+    BUFFER=$(tac $HISTFILE | perl -0 -ne 'if (!$seen{(/^\s*[0-9]+\**\t(.*)/s, $1)}++) { s/\n/\n\t/g; print; }' | perl -pe 's/^[^;]*;//' | LC_ALL=C awk '{ line = tolower($0); if (!seen[line]++) print }' | fzf --height 25% --scheme=history --reverse)
     CURSOR=${#BUFFER}
     zle reset-prompt
   }
