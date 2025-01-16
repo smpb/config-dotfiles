@@ -28,7 +28,22 @@ function _docker_ips {
 function _docker_host {
   if type colima &>/dev/null
   then
-    export DOCKER_HOST="unix://$(find ~/.colima -name docker.sock -print -quit 2> /dev/null)"
+    local COLIMA_PATH=""
+
+    if [[ -d "$HOME/.colima" ]];
+    then
+      COLIMA_PATH="$HOME/.colima"
+    fi
+
+    if [[ -n "$XDG_CONFIG_HOME" ]] && [[ -d "$XDG_CONFIG_HOME/colima" ]];
+    then
+      COLIMA_PATH="$XDG_CONFIG_HOME/colima${COLIMA_PATH:+ $COLIMA_PATH}"
+    fi
+
+    if [[ -n "$COLIMA_PATH" ]];
+    then
+      export DOCKER_HOST="unix://$(find $COLIMA_PATH -name docker.sock -print -quit 2> /dev/null)"
+    fi
   fi
 }
 
