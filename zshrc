@@ -334,6 +334,9 @@ else
   alias meld='vi -d'
 fi
 
+# edit Zsh history, leave no trace
+alias viz=' vi + ${ZSH_HOME}/zsh_history'
+
 # jump into Tmux from SSH
 #   'sh' uses '-l' to load more $PATH because on macOS 'tmux' is in a non-standard place.
 function ssht() {
