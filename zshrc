@@ -317,6 +317,7 @@ if type nvim &>/dev/null
 then
   export EDITOR='nvim'
   export VISUAL='nvim'
+  export MANPAGER='nvim +Man!'
 
   alias   vi=nvim
   alias  vim=nvim
