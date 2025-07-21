@@ -326,6 +326,7 @@ elif type vim &>/dev/null
 then
   export EDITOR='vim'
   export VISUAL='vim'
+  export MANPAGER="vim +MANPAGER --not-a-term -"
 
   alias   vi=vim
   alias gvim=vim
