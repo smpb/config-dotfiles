@@ -76,8 +76,8 @@
   stash-recover = "!git fsck --unreachable | grep commit | cut -d ' ' -f3 | xargs git log --merges --no-walk --grep=WIP"
   # get the top level directory name
   top = rev-parse --show-toplevel
-  # git pull with rebase
-  update = "!git pull origin $(git rev-parse --abbrev-ref HEAD) --rebase"
+  # git pull with rebase keeping dates
+  update = "!git fetch origin && git rebase --committer-date-is-author-date origin/$(git rev-parse --abbrev-ref HEAD)"
   # show a ranked count of git verbs
   verbs = !git log --pretty=format:'%s' | cut -d ' ' -f 1 | sort | uniq -c | sort -n
   # [what = whatchanged] what changed in each commit
