@@ -42,7 +42,8 @@ function _docker_host {
 
     if [[ -n "$COLIMA_PATH" ]];
     then
-      export DOCKER_HOST="unix://$(find $COLIMA_PATH -name docker.sock -print -quit 2> /dev/null)"
+      # with =, split contents on whitespace
+      export DOCKER_HOST="unix://$(find ${=COLIMA_PATH} -name docker.sock -print -quit 2> /dev/null)"
     fi
   fi
 }
@@ -182,4 +183,7 @@ then
   compdef dk=docker
 fi
 
-_docker_host
+# Set the DOCKER_HOST environment variable if it is not already set
+if [[ -z "$DOCKER_HOST" ]]; then
+  _docker_host
+fi
