@@ -221,10 +221,9 @@ fi
 autoload -Uz compinit
 
 if [[ $(find "$ZSH_HOME/zcompdump" -mtime +0 2>/dev/null) ]]; then
-  compinit -d $ZSH_HOME/zcompdump
-  touch $ZSH_HOME/zcompdump
+  compinit -d "$ZSH_HOME/zcompdump" -i
 else
-  compinit -C -d $ZSH_HOME/zcompdump
+  compinit -C -d "$ZSH_HOME/zcompdump"
 fi
 
 # display colors in selection menus
