@@ -152,7 +152,7 @@ function dk() {
 
     # Remove supplanted image builds
     rmb)
-      command docker images | grep none | awk '{ print $3 }' | xargs -I {} sh -c 'command docker rmi {}'
+      command docker images --format table | grep none | awk '{ print $3 }' | xargs -I {} sh -c 'command docker rmi {}'
       ;;
 
     # Remove all dangling images
