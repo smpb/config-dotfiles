@@ -93,7 +93,8 @@ function dk() {
 
     # Compose up
     cmu)
-      command docker compose up
+      shift 1
+      command docker compose up "$@"
       ;;
 
     # Execute command (bash, by default) in a container
@@ -110,7 +111,8 @@ function dk() {
 
     # Docker images alias
     im)
-      command docker images
+      shift 1
+      command docker images "$@"
       ;;
 
     # Docker inspect alias
