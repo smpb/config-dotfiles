@@ -134,6 +134,7 @@ function dk() {
     # return the hash IDs of the containers running with the label "$1"
     #  in order to do things like dk ex $(dk label <label>) sh
     label)
+      shift 1
       command docker ps --filter="label=$1" --format="{{.ID}}"
       ;;
 
