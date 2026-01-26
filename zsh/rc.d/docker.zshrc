@@ -66,7 +66,7 @@ function dk() {
 
     # Compose build
     cmb)
-      command docker compose build
+      command docker compose build --check --quiet && command docker compose build "$@"
       ;;
 
     # Compose down
