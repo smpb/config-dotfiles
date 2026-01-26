@@ -91,6 +91,11 @@ function dk() {
       command docker compose run "$@"
       ;;
 
+    # Compose stop
+    cms)
+      command docker compose stop "$@"
+      ;;
+
     # Compose up
     cmu)
       shift 1
