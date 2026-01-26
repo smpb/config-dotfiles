@@ -71,7 +71,7 @@ function dk() {
 
     # Compose down
     cmd)
-      command docker compose down
+      command docker compose down "$@"
       ;;
 
     # Execute command (bash, by default) in a composed service
@@ -82,7 +82,7 @@ function dk() {
 
     # Attach to composed service logs
     cml)
-      command docker compose logs -f
+      command docker compose logs -f "$@"
       ;;
 
     # Compose run
